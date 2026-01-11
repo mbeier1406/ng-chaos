@@ -131,3 +131,26 @@ $ npm install --global json-server
 $ json-server --watch db.json
 $ curl http://localhost:3000/locations?id=1
 ```
+
+### Projekt bauen
+
+Um das projekt zu bauen, ist auszuführen:
+
+```bash
+$ ng build
+```
+
+Kompiliert das projekt und speichert die Artefakte im `dist/` Verzeichnis.
+
+## Unit Tests ausführen
+
+Mit dem [Vitest](https://vitest.dev/) Test-Runner werden ide `*.spec.ts-test` ausgeführt.
+Ein Beispiel für ein Test ist `src/app/app.spec.ts`.
+
+```bash
+$ ng test
+```
+
+## Weitere Informationen
+
+Mehr Infos zur Angular CLI mit detaillierten Kommandozeilen Referenzen auf der Seite [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
