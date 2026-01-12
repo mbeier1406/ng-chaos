@@ -3,37 +3,44 @@
         {
             "id": 1,
             "date": "2026-01-12",
-            "description": "Am Brink"
+            "description": "Am Brink",
+            "photo": "/Cid1.jpg"
         },
         {
             "id": 2,
             "date": "2026-01-13",
-            "description": "Vor dem Haus"
+            "description": "Vor dem Haus",
+            "photo": "/Cid2.jpg"
         },
         {
             "id": 3,
             "date": "2026-01-14",
-            "description": "Auf der Strasse"
+            "description": "Auf der Strasse",
+            "photo": "/Cid3.jpg"
         },
         {
             "id": 4,
             "date": "2026-01-14",
-            "description": "Steller Heide"
+            "description": "Steller Heide",
+            "photo": "/Cid4.jpg"
         },
         {
             "id": 5,
             "date": "2026-01-14",
-            "description": "In der Küche"
+            "description": "In der Küche",
+            "photo": "/Cid5.jpg"
         },
         {
             "id": 6,
             "date": "2026-01-15",
-            "description": "Vor dem Haus"
+            "description": "Vor dem Haus",
+            "photo": "/Cid6.jpg"
         },
         {
             "id": 7,
             "date": "2026-01-115",
-            "description": "ImWohnzimmer"
+            "description": "ImWohnzimmer",
+            "photo": "/Cid7.jpg"
         }
     ]
 }

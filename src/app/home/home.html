@@ -1,1 +1,6 @@
-<p>home works!</p>
+
+<section>
+    @for (ciddaten of ciddatenList; track $index) {
+        <app-cidanzeige [ciddaten]="ciddaten" />
+    }
+</section>
