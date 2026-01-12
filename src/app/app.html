@@ -3,13 +3,12 @@
 </style>
 
 <main class="main">
+  <a [routerLink]="['/']">
+    <header>
+      <img class="cid-logo" src="/Cid0.png" alt="Cid" aria-hidden="false" />
+    </header>
+  </a>
   <div class="content">
-    <a [routerLink]="['/']">
-      <header>
-        <img class="cid-logo" src="/Cid0.png" alt="Cid" aria-hidden="false" />
-      </header>
-    </a>
+    <router-outlet />
   </div>
 </main>
-
-<router-outlet />

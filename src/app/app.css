@@ -10,13 +10,8 @@
     position: relative;
 }
 
-.content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
- }
-
- .cid-logo {
+.cid-logo {
     width: 25%;
     object-fit: contain;
- }
+}
+

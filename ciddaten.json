@@ -1,0 +1,39 @@
+{
+    "ciddaten": [
+        {
+            "id": 1,
+            "date": "2026-01-12",
+            "description": "Am Brink"
+        },
+        {
+            "id": 2,
+            "date": "2026-01-13",
+            "description": "Vor dem Haus"
+        },
+        {
+            "id": 3,
+            "date": "2026-01-14",
+            "description": "Auf der Strasse"
+        },
+        {
+            "id": 4,
+            "date": "2026-01-14",
+            "description": "Steller Heide"
+        },
+        {
+            "id": 5,
+            "date": "2026-01-14",
+            "description": "In der Küche"
+        },
+        {
+            "id": 6,
+            "date": "2026-01-15",
+            "description": "Vor dem Haus"
+        },
+        {
+            "id": 7,
+            "date": "2026-01-115",
+            "description": "ImWohnzimmer"
+        }
+    ]
+}

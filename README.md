@@ -104,14 +104,14 @@ Anlegen von Komponenten, Interfaces usw.
 $ ng generate component NAME
 
 # Interfaces/Datenstrukturen anlegen
-# Beispiel src/app/housinglocation.ts
-# Service, der die Daten liefert: src/app/housing.service.ts
+# Beispiel src/app/ciddaten.ts
+# Service, der die Daten liefert: src/app/ciddaten.service.ts
 # Komponente, die die Daten liest und an die konsumierende Komponente bindet: src/app/home/home.ts
-# Komponente, die die Daten konsumiert und als Tabelle anzeigt (Interpolation): src/app/housing-location/housing-location.ts
+# Komponente, die die Daten konsumiert und als Tabelle anzeigt (Interpolation): src/app/....ts
 $ ng generate interface NAME
 
 # Service, der Daten bereitstellt anlegen
-# Beispiel: src/app/housing.service.ts
+# Beispiel: src/app/ciddaten.service.ts
 $ ng generate service NAME --skip-tests
 
 # Routen anlegen, um zwischen verschiedenen Komponenten zu navigieren
@@ -121,7 +121,7 @@ $ cat src/app/routes.ts
 $ cat src/app/details/details.ts
 
 # http Service erstellen, der Zugriff auf eine Datenbank erlaubt
-# Service, der die Daten asynchron abruft: src/app/housing.service.ts
+# Service, der die Daten asynchron abruft: src/app/ciddaten.service.ts
 # Komponente, die den Service benutzt: src/app/home/home.ts
 # Datenbank anlegen
 $ cat db.json
@@ -129,12 +129,12 @@ $ cat db.json
 $ npm install --global json-server
 # JSON-Server starten und testen
 $ json-server --watch db.json
-$ curl http://localhost:3000/locations?id=1
+$ curl http://localhost:3000/ciddaten?id=1
 ```
 
 ### Projekt bauen
 
-Um das projekt zu bauen, ist auszuführen:
+Um das Projekt zu bauen, ist auszuführen:
 
 ```bash
 $ ng build
