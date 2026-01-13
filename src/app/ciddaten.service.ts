@@ -15,4 +15,8 @@ export class CiddatenService {
     const ciddatenJson = await data.json();
     return ciddatenJson[0] ?? {};
   }
+  // TODO: Bild senden per Mail an den User
+  bildSenden(name: string, email: string, bildId: number) {
+    console.log(`Bild senden: name=${name}, email=${email}, bildId=${bildId}`);
+  }
 }

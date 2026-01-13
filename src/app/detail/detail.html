@@ -17,4 +17,14 @@
         <li>Zeit: {{ ciddaten?.zeit }}</li>
       </ul>
     </section>
+    <section>
+        <h2>Bild senden</h2>
+        <form [formGroup]="bildSendenForm" (submit)="bildSenden()">
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name" />
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" />
+            <button type="submit">Bild senden</button>
+        </form>
+    </section>
   </article>

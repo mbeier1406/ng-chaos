@@ -15,7 +15,10 @@ export class Detail {
   route: ActivatedRoute = inject(ActivatedRoute);
   ciddatenService: CiddatenService = inject(CiddatenService);
   ciddaten: Ciddaten | undefined;
-
+  bildSendenForm = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+  });
   constructor() {
     const ciddatenId = parseInt(this.route.snapshot.params['id'], 10);
     this.ciddatenService.getCiddatenById(ciddatenId).then((ciddaten) => {
@@ -23,5 +26,10 @@ export class Detail {
       this.changeDetectorRef.markForCheck();
     });
   }
-
+  bildSenden() {
+    this.ciddatenService.bildSenden(
+      this.bildSendenForm.value.name ?? '',
+      this.bildSendenForm.value.email ?? '',
+      this.ciddaten?.id ?? 0);
+  }
 }
