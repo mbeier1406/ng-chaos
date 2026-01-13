@@ -1,17 +1,12 @@
-
-.main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
+:host {
+    --content-padding: 10px;
 }
-
-.cid-logo {
-    width: 25%;
-    object-fit: contain;
+header {
+    display: block;
+    height: 60px;
+    padding: var(--content-padding);
+    box-shadow: 0px 5px 25px var(--shadow-color);
 }
-
+.content {
+    padding: var(--content-padding);
+}

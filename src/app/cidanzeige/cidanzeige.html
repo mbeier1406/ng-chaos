@@ -1,11 +1,11 @@
-<section>
+<section class="listing">
     <img
-        class="cid-photo"
+        class="listing-photo"
         [src]="ciddaten().photo"
         alt="Photo of {{ ciddaten().description }}"
         crossorigin
     />
-    <h2>{{ ciddaten().description }}</h2>
-    <p>Datum: {{ ciddaten().date }}</p>
+    <h2 class="listing-heading">{{ ciddaten().description }}</h2>
+    <p class="listing-location">Ort: {{ ciddaten().location }}</p>
     <a [routerLink]="['/detail', ciddaten().id]">Informationen zum Bild</a>
 </section>

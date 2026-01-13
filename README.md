@@ -70,7 +70,7 @@ $ ng new ng-chaos
 
 # Während der Erstellung wird gefragt:
 # - Would you like to add Angular routing? (Empfehlung: Yes)
-# - Which stylesheet format would you like to use? (z.B. CSS, SCSS, SASS)
+# - Which stylesheet format would you like to use? (z.B. CSS, SCSS, SASS) (Empfehlung: no)
 
 # In das Projektverzeichnis wechseln
 $ cd ng-chaos
@@ -100,14 +100,14 @@ Anlegen von Komponenten, Interfaces usw.
 # - imports: Abhängikeiten der Komponente zu anderen Funktionen, Komponenten usw.
 # - template: Das HTML und Layout der Komponente.
 # - styleUrls: Die URLs der CSS Dateien, die die Komponente verwendet.
-# Beispiel src/app/home
+# Beispiel src/app/home/home.ts
 $ ng generate component NAME
 
 # Interfaces/Datenstrukturen anlegen
 # Beispiel src/app/ciddaten.ts
 # Service, der die Daten liefert: src/app/ciddaten.service.ts
 # Komponente, die die Daten liest und an die konsumierende Komponente bindet: src/app/home/home.ts
-# Komponente, die die Daten konsumiert und als Tabelle anzeigt (Interpolation): src/app/....ts
+# Komponente, die die Daten konsumiert und als Tabelle anzeigt (Interpolation): src/app/detail/detail.ts
 $ ng generate interface NAME
 
 # Service, der Daten bereitstellt anlegen
@@ -118,7 +118,7 @@ $ ng generate service NAME --skip-tests
 $ cat src/app/routes.ts
 
 # Formular mit Schaltfläche anlegen
-$ cat src/app/details/details.ts
+$ cat src/app/detail/detail.ts
 
 # http Service erstellen, der Zugriff auf eine Datenbank erlaubt
 # Service, der die Daten asynchron abruft: src/app/ciddaten.service.ts
@@ -140,7 +140,7 @@ Um das Projekt zu bauen, ist auszuführen:
 $ ng build
 ```
 
-Kompiliert das projekt und speichert die Artefakte im `dist/` Verzeichnis.
+Kompiliert das Projekt und speichert die Artefakte im `dist/` Verzeichnis.
 
 ## Unit Tests ausführen
 

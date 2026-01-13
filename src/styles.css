@@ -4,11 +4,10 @@
     margin: 0;
     padding: 0;
 }
-
+  
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
 }
-  
 :root {
     --primary-color: #605DC8;
     --secondary-color: #8B89E6;
@@ -16,10 +15,36 @@ body {
     --shadow-color: #E8E8E8;
 }
 
-.content {
-    padding: var(--content-padding);
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+button.primary {
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
+.brand-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+  
+.brand-name:hover {
+    opacity: 0.8;
+}
+
+.brand-logo {
+    height: 60px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+  
+.brand-logo:hover {
+    transform: scale(1.05);
+}
