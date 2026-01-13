@@ -1,0 +1,20 @@
+<article>
+    <img class="cid-photo"
+      [src]="ciddaten?.photo"
+      alt="Foto: {{ ciddaten?.description }}"
+      crossorigin
+    />
+    <section>
+      <h2>{{ ciddaten?.description }}</h2>
+      <p>{{ ciddaten?.hinweis }}</p>
+    </section>
+    <section>
+      <h2>Über dieses Bild</h2>
+      <ul>
+        <li>Datum: {{ ciddaten?.date }}</li>
+        <li>Ort: {{ ciddaten?.location }}</li>
+        <li>Jahreszeit: {{ ciddaten?.season }}</li>
+        <li>Zeit: {{ ciddaten?.zeit }}</li>
+      </ul>
+    </section>
+  </article>

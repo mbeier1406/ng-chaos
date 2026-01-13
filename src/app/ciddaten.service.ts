@@ -15,5 +15,4 @@ export class CiddatenService {
     const ciddatenJson = await data.json();
     return ciddatenJson[0] ?? {};
   }
-
 }

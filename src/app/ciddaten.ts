@@ -3,4 +3,8 @@ export interface Ciddaten {
     date: Date;
     description: string;
     photo: string;
+    location: string;
+    season: string;
+    zeit: string;
+    hinweis: string;
 }

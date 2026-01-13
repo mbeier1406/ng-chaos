@@ -1,0 +1,5 @@
+.cid-photo {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 50px;
+  }

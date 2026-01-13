@@ -7,4 +7,5 @@
     />
     <h2>{{ ciddaten().description }}</h2>
     <p>Datum: {{ ciddaten().date }}</p>
+    <a [routerLink]="['/detail', ciddaten().id]">Informationen zum Bild</a>
 </section>

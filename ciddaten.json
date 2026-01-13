@@ -3,44 +3,72 @@
         {
             "id": 1,
             "date": "2026-01-12",
-            "description": "Am Brink",
-            "photo": "/Cid1.jpg"
+            "description": "Cid am Brink",
+            "photo": "/Cid1.jpg",
+            "location": "Varrel",
+            "season": "Winter",
+            "zeit": "Nachmittags",
+            "hinweis": "Der Schnuffi"
         },
         {
             "id": 2,
             "date": "2026-01-13",
-            "description": "Vor dem Haus",
-            "photo": "/Cid2.jpg"
+            "description": "Cid vor dem Haus",
+            "photo": "/Cid2.jpg",
+            "location": "Varrel",
+            "season": "Winter",
+            "zeit": "Nachts",
+            "hinweis": "Der Schnuffi guckt"
         },
         {
             "id": 3,
             "date": "2026-01-14",
-            "description": "Auf der Strasse",
-            "photo": "/Cid3.jpg"
+            "description": "Cid auf der Strasse",
+            "photo": "/Cid3.jpg",
+            "location": "Varrel",
+            "season": "Winter",
+            "zeit": "Abends",
+            "hinweis": "Der Schnuffi schaut auf die Strasse"
         },
         {
             "id": 4,
             "date": "2026-01-14",
-            "description": "Steller Heide",
-            "photo": "/Cid4.jpg"
+            "description": "Cid in der Steller Heide",
+            "photo": "/Cid4.jpg",
+            "location": "Stelle",
+            "season": "Winter",
+            "zeit": "Abends",
+            "hinweis": "Der Schnuffi schnüffelt in der Heide"
         },
         {
             "id": 5,
             "date": "2026-01-14",
-            "description": "In der Küche",
-            "photo": "/Cid5.jpg"
+            "description": "Cid schläft in der Küche",
+            "photo": "/Cid5.jpg",
+            "location": "Varrel",
+            "season": "Herbst",
+            "zeit": "Mittags",
+            "hinweis": "Der Schnuffi ist schläfrig"
         },
         {
             "id": 6,
             "date": "2026-01-15",
-            "description": "Vor dem Haus",
-            "photo": "/Cid6.jpg"
+            "description": "Cid vor dem Haus",
+            "photo": "/Cid6.jpg",
+            "location": "Varrel",
+            "season": "Winter",
+            "zeit": "Morgens",
+            "hinweis": "Der Schnuffi ist will nach Hause"
         },
         {
             "id": 7,
             "date": "2026-01-115",
-            "description": "ImWohnzimmer",
-            "photo": "/Cid7.jpg"
+            "description": "Cid guckt süß im Wohnzimmer",
+            "photo": "/Cid7.jpg",
+            "location": "Varrel",
+            "season": "Sommer",
+            "zeit": "Morgens",
+            "hinweis": "Schnuffi in Bettellaune"
         }
     ]
 }
