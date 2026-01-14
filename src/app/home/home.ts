@@ -22,12 +22,18 @@ export class Home {
       this.changeDetectorRef.markForCheck();
     });
   }
-  filterListe(ort: string) {
-    if ( !ort ) {
+  filterListe(ort: string, beschreibung: string) {
+    if ( !ort && !beschreibung ) {
       this.filteredCiddatenListe = this.ciddatenList;
       return;
     }
-    this.filteredCiddatenListe = this.ciddatenList.filter((ciddaten) =>
-      ciddaten.location.toLowerCase().includes(ort.toLowerCase()));
+    if ( ort ) {
+      this.filteredCiddatenListe = this.ciddatenList.filter((ciddaten) =>
+        ciddaten.location.toLowerCase().includes(ort.toLowerCase()));
+    }
+    if ( beschreibung ) {
+      this.filteredCiddatenListe = this.filteredCiddatenListe.filter((ciddaten) =>
+        ciddaten.description.toLowerCase().includes(beschreibung.toLowerCase()));
+    }
   }
 }
