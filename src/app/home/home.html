@@ -1,6 +1,11 @@
-
+<section class="search">
+    <form >
+      <input type="text" placeholder="Nach Ort suchen..." #ort />
+      <button class="primary" type="button" (click)="filterListe(ort.value)">Suchen</button>
+    </form>
+  </section>
 <section class="results">
-    @for (ciddaten of ciddatenList; track $index) {
+    @for (ciddaten of filteredCiddatenListe; track $index) {
         <app-cidanzeige [ciddaten]="ciddaten" />
     }
 </section>

@@ -13,11 +13,21 @@ export class Home {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
   ciddatenList : Ciddaten[] = [];
+  filteredCiddatenListe : Ciddaten[] = [];
 
   constructor() {
     this.ciddatenService.getAllCiddaten().then((ciddaten) => {
       this.ciddatenList = ciddaten;
+      this.filteredCiddatenListe = ciddaten;
       this.changeDetectorRef.markForCheck();
     });
+  }
+  filterListe(ort: string) {
+    if ( !ort ) {
+      this.filteredCiddatenListe = this.ciddatenList;
+      return;
+    }
+    this.filteredCiddatenListe = this.ciddatenList.filter((ciddaten) =>
+      ciddaten.location.toLowerCase().includes(ort.toLowerCase()));
   }
 }
