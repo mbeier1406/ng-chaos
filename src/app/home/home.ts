@@ -13,6 +13,7 @@ export class Home {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
   debug = true;
+  debugStatus: string = `Debug: ${this.debug}`;
   cidNamenListe = [{typ: 'Name', name: 'Cid'}, {typ: 'Spitzname', name: 'Butschi'}, {typ: 'Spitzname', name: 'Schnuffdi'}];
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
@@ -41,5 +42,8 @@ export class Home {
   toggleDebug() {
     this.debug = !this.debug;
     this.changeDetectorRef.markForCheck();
+  }
+  setDebugStatus() {
+    this.debugStatus = `Debug: ${this.debug}`;
   }
 }
