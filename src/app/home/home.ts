@@ -12,6 +12,7 @@ import { Cidanzeige } from '../cidanzeige/cidanzeige';
 export class Home {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
+  debug = true;
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
 

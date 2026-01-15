@@ -12,3 +12,9 @@
         <app-cidanzeige [ciddaten]="ciddaten" />
     }
 </section>
+<section>
+    @if (debug) {
+        <p>Debug: {{ ciddatenList.length }} Ciddaten gefunden</p>
+        <p>Debug: {{ filteredCiddatenListe.length }} Ciddaten gefiltert</p>
+    }
+</section>
