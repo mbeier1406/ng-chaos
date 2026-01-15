@@ -21,6 +21,7 @@
     @else {
         <p>Keine Debug-Informationen anzeigen</p>
     }
+    <button class="primary" type="button" (click)="toggleDebug()">Debug ein/aus</button>
     <hr/>
     @for (cidNamen of cidNamenListe; track $index) {
         <p>

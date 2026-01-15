@@ -38,4 +38,8 @@ export class Home {
         ciddaten.description.toLowerCase().includes(beschreibung.toLowerCase()));
     }
   }
+  toggleDebug() {
+    this.debug = !this.debug;
+    this.changeDetectorRef.markForCheck();
+  }
 }
