@@ -16,5 +16,15 @@
     @if (debug) {
         <p>Debug: {{ ciddatenList.length }} Ciddaten gefunden</p>
         <p>Debug: {{ filteredCiddatenListe.length }} Ciddaten gefiltert</p>
+        <p>Versteckt: {{ ciddatenList.length - filteredCiddatenListe.length }} Ciddaten nicht gefiltert</p>
+    }
+    @else {
+        <p>Keine Debug-Informationen anzeigen</p>
+    }
+    <hr/>
+    @for (cidNamen of cidNamenListe; track $index) {
+        <p>
+            <span>{{ cidNamen.typ }}: {{ cidNamen.name }}</span>
+        </p>
     }
 </section>

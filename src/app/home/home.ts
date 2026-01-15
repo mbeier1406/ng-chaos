@@ -13,6 +13,7 @@ export class Home {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
   debug = true;
+  cidNamenListe = [{typ: 'Name', name: 'Cid'}, {typ: 'Spitzname', name: 'Butschi'}, {typ: 'Spitzname', name: 'Schnuffdi'}];
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
 
