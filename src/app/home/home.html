@@ -12,21 +12,5 @@
         <app-cidanzeige [ciddaten]="ciddaten" />
     }
 </section>
-<section title="{{ debugStatus }}" (mouseover)="setDebugStatus()">
-    @if (debug) {
-        <p>Debug: {{ ciddatenList.length }} Ciddaten gefunden</p>
-        <p>Debug: {{ filteredCiddatenListe.length }} Ciddaten gefiltert</p>
-        <p>Versteckt: {{ ciddatenList.length - filteredCiddatenListe.length }} Ciddaten nicht gefiltert</p>
-    }
-    @else {
-        <p>Keine Debug-Informationen anzeigen</p>
-    }
-    <button class="primary" type="button" (click)="toggleDebug()">Debug ein/aus</button>
-    <hr/>
-    @for (cidNamen of cidNamenListe; track $index) {
-        <p>
-            <span>{{ cidNamen.typ }}: {{ cidNamen.name }}</span>
-        </p>
-    }
-</section>
-<div [contentEditable]="debug">Editierbaer Inhalt: {{ debug }}</div>
+<hr class="debug-hr"/>
+<app-debug [ciddatenListe]="ciddatenList" [filteredCiddatenListe]="filteredCiddatenListe" />

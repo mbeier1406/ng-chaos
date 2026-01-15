@@ -11,6 +11,9 @@
     gap: 10px;
     max-width: 300px;
 }
-hr {
-    margin: 20px 0;
+.debug-hr {
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 10px;
 }

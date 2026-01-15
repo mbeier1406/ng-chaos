@@ -2,19 +2,17 @@ import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Ciddaten } from '../ciddaten';
 import { CiddatenService } from '../ciddaten.service';
 import { Cidanzeige } from '../cidanzeige/cidanzeige';
+import { Debug } from "../debug/debug";
 
 @Component({
   selector: 'app-home',
-  imports: [Cidanzeige],
+  imports: [Cidanzeige, Debug],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
-  debug = true;
-  debugStatus: string = `Debug: ${this.debug}`;
-  cidNamenListe = [{typ: 'Name', name: 'Cid'}, {typ: 'Spitzname', name: 'Butschi'}, {typ: 'Spitzname', name: 'Schnuffdi'}];
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
 
@@ -38,12 +36,5 @@ export class Home {
       this.filteredCiddatenListe = this.filteredCiddatenListe.filter((ciddaten) =>
         ciddaten.description.toLowerCase().includes(beschreibung.toLowerCase()));
     }
-  }
-  toggleDebug() {
-    this.debug = !this.debug;
-    this.changeDetectorRef.markForCheck();
-  }
-  setDebugStatus() {
-    this.debugStatus = `Debug: ${this.debug}`;
   }
 }
