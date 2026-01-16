@@ -17,3 +17,19 @@
     border-radius: 10px;
     padding: 10px;
 }
+.letztes-bild {
+    background: var(--accent-color);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px 20px;
+    margin: 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.letztes-bild:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(96, 93, 200, 0.2);
+}

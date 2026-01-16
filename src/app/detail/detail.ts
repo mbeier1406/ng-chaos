@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { CiddatenService } from '../ciddaten.service';
 import { Ciddaten } from '../ciddaten';
+import { DetailService } from '../detail.service';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ export class Detail {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   route: ActivatedRoute = inject(ActivatedRoute);
   ciddatenService: CiddatenService = inject(CiddatenService);
+  detailService: DetailService = inject(DetailService);
   ciddaten: Ciddaten | undefined;
   bildSendenForm = new FormGroup({
     name: new FormControl(''),
@@ -31,5 +33,6 @@ export class Detail {
       this.bildSendenForm.value.name ?? '',
       this.bildSendenForm.value.email ?? '',
       this.ciddaten?.id ?? 0);
+    this.detailService.setLetztesGesendetesBild(this.ciddaten?.description ?? '');
   }
 }

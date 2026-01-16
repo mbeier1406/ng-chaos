@@ -1,8 +1,10 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Ciddaten } from '../ciddaten';
 import { CiddatenService } from '../ciddaten.service';
 import { Cidanzeige } from '../cidanzeige/cidanzeige';
 import { Debug } from "../debug/debug";
+import { DetailService } from '../detail.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,15 @@ import { Debug } from "../debug/debug";
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
+export class Home implements OnDestroy {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly ciddatenService = inject(CiddatenService);
+  private readonly detailService = inject(DetailService);
+  private subscription? : Subscription;
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
   debugStatus : string = 'Debug: ';
+  letztesGesendetesBild : string = '';
 
   constructor() {
     this.ciddatenService.getAllCiddaten().then((ciddaten) => {
@@ -23,6 +28,14 @@ export class Home {
       this.filteredCiddatenListe = ciddaten;
       this.changeDetectorRef.markForCheck();
     });
+  }
+  ngOnInit() {
+    this.subscription = this.detailService.letztesGesendetesBild$.subscribe((bild) => {
+      this.letztesGesendetesBild = `Letztes gesendetes Bild: ${bild}`;
+    });
+  }
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
   filterListe(ort: string, beschreibung: string) {
     if ( !ort && !beschreibung ) {
