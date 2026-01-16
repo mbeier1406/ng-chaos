@@ -1,4 +1,4 @@
-<section class="search">
+<section class="search" title="{{ debugStatus }}">
     <form >
         <section class="search-form">
             <input type="text" placeholder="Nach Ort suchen..." #ort />
@@ -12,5 +12,4 @@
         <app-cidanzeige [ciddaten]="ciddaten" />
     }
 </section>
-<hr class="debug-hr"/>
-<app-debug [ciddatenListe]="ciddatenList" [filteredCiddatenListe]="filteredCiddatenListe" />
+<app-debug [ciddatenListe]="ciddatenList" [filteredCiddatenListe]="filteredCiddatenListe" (debugEvent)="showDebug($event)" />

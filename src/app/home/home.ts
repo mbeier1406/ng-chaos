@@ -15,6 +15,7 @@ export class Home {
   private readonly ciddatenService = inject(CiddatenService);
   ciddatenList : Ciddaten[] = [];
   filteredCiddatenListe : Ciddaten[] = [];
+  debugStatus : string = 'Debug: ';
 
   constructor() {
     this.ciddatenService.getAllCiddaten().then((ciddaten) => {
@@ -36,5 +37,8 @@ export class Home {
       this.filteredCiddatenListe = this.filteredCiddatenListe.filter((ciddaten) =>
         ciddaten.description.toLowerCase().includes(beschreibung.toLowerCase()));
     }
+  }
+  showDebug(event: string) {
+    this.debugStatus = event;
   }
 }
