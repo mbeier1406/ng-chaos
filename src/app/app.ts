@@ -1,6 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
+/**
+ * Root-Component der Anwendung
+ * 
+ * @description
+ * Die Haupt-Component, die als Einstiegspunkt der Angular-Anwendung dient.
+ * Enthält die Router-Konfiguration und den Anwendungstitel.
+ */
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink],
@@ -8,5 +15,9 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
+  /**
+   * Der Titel der Anwendung
+   * @default 'Chaos'
+   */
   protected readonly title = signal('Chaos');
 }

@@ -151,6 +151,30 @@ Ein Beispiel für ein Test ist `src/app/app.spec.ts`.
 $ ng test
 ```
 
+## Dokumentation
+
+Installation Compdoc:
+
+```bash
+$ npm install --save-dev @compodoc/compodoc
+```
+
+Verwendung:
+
+```bash
+# Generiert die HTML-Dateien im Ordner /documentation/
+$ npx compodoc -p tsconfig.json
+
+# Mit Live-Server (Web-Server lokal starten und Dokumentation anzeigen) und Änderungsüberwachung
+# Anzeigen unter der URL http://localhost:8080
+$ npx compodoc -p tsconfig.json -s -w
+
+# In /package.json hinzufügen (dann nur noch npx run compdoc):
+"scripts": {
+  "compodoc": "compodoc -p tsconfig.json -s"
+}
+```
+
 ## Weitere Informationen
 
 Mehr Infos zur Angular CLI mit detaillierten Kommandozeilen Referenzen auf der Seite [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
