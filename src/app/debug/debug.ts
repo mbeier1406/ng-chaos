@@ -1,10 +1,11 @@
 import { Component, input, output } from '@angular/core';
 import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
 import { Ciddaten } from '../ciddaten';
+import  { Loader } from "../loader/loader";
 
 @Component({
   selector: 'app-debug',
-  imports: [],
+  imports: [Loader],
   templateUrl: './debug.html',
   styleUrl: './debug.css',
 })

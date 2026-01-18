@@ -16,3 +16,18 @@
     }
 </section>
 <div [contentEditable]="debug">Editierbaer Inhalt: {{ debug }}</div>
+<hr />
+<section>
+    @defer (on viewport) {
+        <app-loader />
+    }
+    @placeholder (minimum 5s) {
+        <p>Wir laden diesen Inhalt, wenn wir ihn benötigen.</p>
+    }
+    @loading (minimum 5s) {
+        <p>Laden...</p>
+    }
+    @error {
+        <p>Fehler beim Laden dieses Inhalts.</p>
+    }
+</section>
