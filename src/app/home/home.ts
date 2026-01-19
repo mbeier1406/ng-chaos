@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Ciddaten } from '../ciddaten';
 import { CiddatenService } from '../ciddaten.service';
@@ -15,7 +16,7 @@ import { DetailService } from '../detail.service';
  */
 @Component({
   selector: 'app-home',
-  imports: [Cidanzeige, Debug],
+  imports: [Cidanzeige, Debug, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

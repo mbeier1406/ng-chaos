@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: Home,
-    title: 'Cid'
+    title: 'Cid der Schnuffdi'
   },
   {
     path: 'detail/:id',

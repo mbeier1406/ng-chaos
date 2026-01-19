@@ -15,7 +15,11 @@
         </p>
     }
 </section>
+<hr />
 <div [contentEditable]="debug">Editierbaer Inhalt: {{ debug }}</div>
+<label for="debug">Debug: {{ debug }}
+    <input type="checkbox" id="debug" [(ngModel)]="debug" />
+</label>
 <hr />
 <section>
     @defer (on viewport) {

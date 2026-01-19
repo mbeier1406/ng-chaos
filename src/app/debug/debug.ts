@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
 import { Ciddaten } from '../ciddaten';
 import  { Loader } from "../loader/loader";
@@ -13,7 +14,7 @@ import  { Loader } from "../loader/loader";
  */
 @Component({
   selector: 'app-debug',
-  imports: [Loader],
+  imports: [Loader, FormsModule],
   templateUrl: './debug.html',
   styleUrl: './debug.css',
 })

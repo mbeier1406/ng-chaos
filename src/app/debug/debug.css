@@ -1,3 +1,10 @@
 section hr {
     margin: 20px 0 !important;
 }
+
+hr {
+    margin-top: 10px;
+    margin-right: 1600px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}

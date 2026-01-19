@@ -14,3 +14,12 @@
 </section>
 <section class="letztes-bild">{{ letztesGesendetesBild }}</section>
 <app-debug [ciddatenListe]="ciddatenList" [filteredCiddatenListe]="filteredCiddatenListe" (debugEvent)="showDebug($event)" />
+<nav>
+    <ul>
+        <!-- Navigation: diese Links laden immer die gesamte Seite neu -->
+        <li><a href="/">Home</a></li>
+        <li><a href="/detail/1">Details zu "Cid am Brink"</a></li>
+        <!-- Navigation: diese Links laden nur den Inhalt der Seite neu -->
+        <li><a [routerLink]="['/detail', 2]">Details zu "Cid vor dem Haus"</a></li>
+    </ul>
+</nav>
