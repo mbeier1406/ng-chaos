@@ -60,7 +60,18 @@ input {
     height: 400px;
   }
 }
-
 section {
   margin: 20px;
+}
+.error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+input.ng-invalid.ng-touched {
+  border-color: #d32f2f;
+}
+input.ng-valid.ng-touched {
+  border-color: #4caf50;
 }

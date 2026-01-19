@@ -19,12 +19,31 @@
     </section>
     <section>
         <h2>Bild senden</h2>
-        <form [formGroup]="bildSendenForm" (submit)="bildSenden()">
+        <!--
+          Reactive Form im Gegensatz zu template forms, die die Bindung zwischen dem Template und
+          der Komponente programmatisch handhabt).
+          (ngSubmit) statt (submit) [Standardverhalten des Browsers (Seiten-Reload wird nicht
+          automatisch verhindert, event.preventDefault() aufrufen)].
+        -->
+        <form [formGroup]="bildSendenForm" (ngSubmit)="bildSenden()">
             <label for="name">Name</label>
             <input id="name" type="text" formControlName="name" />
+            @if (hasError('name')) {
+              <div class="error">Name ist erforderlich</div>
+            }
             <label for="email">Email</label>
             <input id="email" type="email" formControlName="email" />
-            <button type="submit">Bild senden</button>
+            @if (hasError('email')) {
+              <div class="error">
+                  @if (hasSpecificError('email', 'required')) {
+                      <span>E-Mail ist erforderlich</span>
+                  }
+                  @if (hasSpecificError('email', 'email')) {
+                      <span>Ungültige E-Mail-Adresse</span>
+                  }
+              </div>
+            }
+            <button type="submit" [disabled]="!bildSendenForm.valid">Bild senden</button>
         </form>
     </section>
   </article>

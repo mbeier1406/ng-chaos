@@ -1,6 +1,6 @@
-import {Component, inject, ChangeDetectorRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CiddatenService } from '../ciddaten.service';
 import { Ciddaten } from '../ciddaten';
 import { DetailService } from '../detail.service';
@@ -41,8 +41,8 @@ export class Detail {
    * @property email - E-Mail-Adresse des Empfängers
    */
   bildSendenForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
   
   /**
@@ -69,5 +69,26 @@ export class Detail {
       this.bildSendenForm.value.email ?? '',
       this.ciddaten?.id ?? 0);
     this.detailService.setLetztesGesendetesBild(this.ciddaten?.description ?? '');
+  }
+
+  /**
+   * Prüft, ob ein Feld einen Fehler hat und bereits bearbeitet wurde
+   * @param fieldName - Name des FormControl-Felds
+   * @returns true wenn Feld invalid und touched
+   */
+  hasError(fieldName: string): boolean {
+    const field = this.bildSendenForm.get(fieldName);
+    return field ? field.invalid && field.touched : false;
+  }
+
+  /**
+   * Prüft, ob ein bestimmter Fehler für ein Feld existiert
+   * @param fieldName - Name des FormControl-Felds
+   * @param errorType - Typ des Fehlers (z.B. 'required', 'email')
+   * @returns true wenn der spezifische Fehler existiert
+   */
+  hasSpecificError(fieldName: string, errorType: string): boolean {
+    const field = this.bildSendenForm.get(fieldName);
+    return field ? field.hasError(errorType) && field.touched : false;
   }
 }

@@ -62,8 +62,11 @@ export class Debug {
    * mit dem neuen Status an die Parent-Component.
    */
   toggleDebug() {
-    this.debug = !this.debug;
-    this.debugEvent.emit(`Debug: ${this.debug}`);
+    if ( confirm(`Debugmodus wechseln von "${this.debug}"?`) ) {
+      this.debug = !this.debug;
+      this.debugEvent.emit(`Debug: ${this.debug}`);
+      alert(`Debug: ${this.debug}`);
+    }
   }
   
   /**

@@ -18,6 +18,11 @@
 <hr />
 <div [contentEditable]="debug">Editierbaer Inhalt: {{ debug }}</div>
 <label for="debug">Debug: {{ debug }}
+    <!--
+        Template Form (nicht programmatisch gesteuert wie reactive forms,
+        sondern über die ngModel-Direktive, die die Bindung zwischen dem Template
+        und der Komponente handhabt).
+    -->
     <input type="checkbox" id="debug" [(ngModel)]="debug" />
 </label>
 <hr />
