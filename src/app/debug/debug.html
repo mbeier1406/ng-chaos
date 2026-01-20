@@ -3,6 +3,7 @@
         <p>Debug: {{ ciddatenListe().length }} Ciddaten gefunden</p>
         <p>Debug: {{ filteredCiddatenListe().length }} Ciddaten gefiltert</p>
         <p>Versteckt: {{ ciddatenListe().length - filteredCiddatenListe().length }} Ciddaten nicht gefiltert</p>
+        <p>FilteredCiddatenListe: {{ filteredCiddatenListe() | json }}</p>
     }
     @else {
         <p>Keine Debug-Informationen anzeigen</p>
@@ -16,7 +17,9 @@
     }
 </section>
 <hr />
-<div [contentEditable]="debug">Editierbaer Inhalt: {{ debug }}</div>
+<div [contentEditable]="debug">Editierbaer Inhalt: {{ `${debug}` | uppercase }} ({{ debug+'' | lowercase }})</div>
+<p>Datum: {{ datum | date:'dd.MM.yyyy HH:mm:ss' }} ({{ datum | date:'medium' }})</p>
+<p>Zahl: {{ 1234567890 | number:'1.2-2':'de' }}</p>
 <label for="debug">Debug: {{ debug }}
     <!--
         Template Form (nicht programmatisch gesteuert wie reactive forms,

@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
 import { Ciddaten } from '../ciddaten';
@@ -14,7 +15,7 @@ import  { Loader } from "../loader/loader";
  */
 @Component({
   selector: 'app-debug',
-  imports: [Loader, FormsModule],
+  imports: [Loader, FormsModule, UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe],
   templateUrl: './debug.html',
   styleUrl: './debug.css',
 })
@@ -53,6 +54,9 @@ export class Debug {
    * Event-Emitter für Debug-Status-Änderungen
    */
   debugEvent = output<string>();
+
+  /** Aktuelles Dateum anzeigen */
+  datum : Date = new Date();
 
   /**
    * Schaltet den Debug-Modus ein/aus
