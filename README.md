@@ -114,6 +114,9 @@ $ ng generate interface NAME
 # Beispiel: src/app/ciddaten.service.ts
 $ ng generate service NAME --skip-tests
 
+# Eigene Pipe anlegen
+$ ng generate pipe NAME
+
 # Routen anlegen, um zwischen verschiedenen Komponenten zu navigieren
 $ cat src/app/routes.ts
 
