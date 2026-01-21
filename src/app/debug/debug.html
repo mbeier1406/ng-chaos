@@ -17,7 +17,7 @@
     }
 </section>
 <hr />
-<div [contentEditable]="debug">Editierbaer Inhalt: {{ `${debug}` | uppercase }} ({{ debug+'' | lowercase }})</div>
+<div [contentEditable]="debug">Editierbaer Inhalt: {{ `${debug}` | uppercase | bold }} ({{ debug+'' | lowercase }})</div>
 <p>Datum: {{ datum | date:'dd.MM.yyyy HH:mm:ss' }} ({{ datum | date:'medium' }})</p>
 <p>Zahl: {{ 1234567890 | number:'1.2-2':'de' }}</p>
 <label for="debug">Debug: {{ debug }}

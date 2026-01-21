@@ -3,7 +3,8 @@ import { UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe } from '@
 import { FormsModule } from '@angular/forms';
 import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
 import { Ciddaten } from '../ciddaten';
-import  { Loader } from "../loader/loader";
+import { Loader } from "../loader/loader";
+import { BoldPipe } from "../bold-pipe";
 
 /**
  * Debug-Component zur Anzeige von Debug-Informationen
@@ -15,7 +16,7 @@ import  { Loader } from "../loader/loader";
  */
 @Component({
   selector: 'app-debug',
-  imports: [Loader, FormsModule, UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe],
+  imports: [Loader, FormsModule, UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe, BoldPipe],
   templateUrl: './debug.html',
   styleUrl: './debug.css',
 })
