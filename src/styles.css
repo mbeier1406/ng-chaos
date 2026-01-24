@@ -24,6 +24,16 @@ button.primary {
     cursor: pointer;
 }
 
+.brand-section-std {
+    display: flex;
+    background-color: var(--primary-color);
+}
+
+.brand-section-white {
+    display: flex;
+    background-color: white;
+}
+
 .brand-name {
     display: flex;
     align-items: center;

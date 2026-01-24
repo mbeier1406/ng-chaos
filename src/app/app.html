@@ -3,11 +3,14 @@
 </style>
 
 <main>
-  <a [routerLink]="['/']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/Cid0.png" alt="Cid" aria-hidden="false" />
-    </header>
-  </a>
+  <section [class]="brandSectionStyle()">
+    <a [routerLink]="['/']">
+      <header class="brand-name">
+        <img class="brand-logo" src="/Cid0.png" alt="Cid" aria-hidden="false" />
+      </header>
+    </a>
+    <button class="primary" type="button" (click)="toggleBrandSectionStyle()">Toggle Brand Section Style (aktuell: {{ brandSectionStyle() }})</button>
+  </section>
   <div class="content">
     <router-outlet />
   </div>

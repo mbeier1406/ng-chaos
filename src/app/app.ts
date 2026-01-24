@@ -20,4 +20,10 @@ export class App {
    * @default 'Chaos'
    */
   protected readonly title = signal('Chaos');
+  protected readonly brandSectionStyle = signal<'brand-section-std' | 'brand-section-white'>('brand-section-std');
+
+  toggleBrandSectionStyle() {
+    this.brandSectionStyle.update(style => style === 'brand-section-std' ? 'brand-section-white' : 'brand-section-std');
+  }
+
 }
