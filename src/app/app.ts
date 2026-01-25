@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 /**
@@ -21,6 +21,7 @@ export class App {
    */
   protected readonly title = signal('Chaos');
   protected readonly brandSectionStyle = signal<'brand-section-std' | 'brand-section-white'>('brand-section-std');
+  protected readonly brandSectionStyleText = computed(() => this.brandSectionStyle() === 'brand-section-std' ? 'Standard-Style' : 'Weißer Hintergrund');
 
   toggleBrandSectionStyle() {
     this.brandSectionStyle.update(style => style === 'brand-section-std' ? 'brand-section-white' : 'brand-section-std');
