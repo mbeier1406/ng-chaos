@@ -1,10 +1,11 @@
-import { Component, input, output } from '@angular/core';
+import { Component, computed, input, output, resource, signal } from '@angular/core';
 import { UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
 import { Ciddaten } from '../ciddaten';
 import { Loader } from "../loader/loader";
 import { BoldPipe } from "../bold-pipe";
+import { loadUser } from "../user-api";
 
 /**
  * Debug-Component zur Anzeige von Debug-Informationen
@@ -60,6 +61,38 @@ export class Debug {
   datum : Date = new Date();
 
   /**
+   * ID des zu ladenden Users
+   * @default 1
+   */
+  userId = signal(1);
+
+  /**
+   * Resource für den User
+   * @description
+   * Lädt den User aus der Datenbank, Datei oder Konstanten.
+   */
+  userResource = resource({
+    params: () => ({id: this.userId()}),
+    loader: (args) => loadUser(args.params.id)
+  });
+
+  /**
+   * Status des User-Ladevorgangs
+   * @description
+   * Gibt an, ob der User-Ladevorgang läuft.
+   * Das ist beim Wechsel des anzuzeihenden Users oder beim Reload der Fall.
+   */
+  isLoading = computed(() => this.userResource.status() === 'loading' || this.userResource.isLoading());
+
+  /**
+   * Status des User-Ladevorgangs
+   * @description
+   * Gibt an, ob der User-Ladevorgang einen Fehler hat.
+   */
+  hasError = computed(() => this.userResource.status() === 'error');
+
+
+  /**
    * Schaltet den Debug-Modus ein/aus
    * 
    * @description
@@ -83,4 +116,20 @@ export class Debug {
   setDebugStatus() {
     this.debugStatus = `Debug: ${this.debug}`;
   }
+
+  /**
+   * Setzt die ID des zu ladenden Users
+   * @param id - Die ID des zu ladenden Users
+   */
+  setUser(id: number) {
+    this.userId.set(id);
+  }
+
+  /**
+   * Lädt den User erneut
+   */
+  reloadUser() {
+    this.userResource.reload();
+  }
+
 }

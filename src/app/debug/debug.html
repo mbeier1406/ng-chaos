@@ -43,3 +43,25 @@
         <p>Fehler beim Laden dieses Inhalts.</p>
     }
 </section>
+<hr />
+<section>
+    <button type="button" (click)="setUser(1)">User 1</button>
+    <button type="button" (click)="setUser(2)">User 2</button>
+    <button type="button" (click)="setUser(3)">User 3</button>
+    <button type="button" (click)="setUser(4)">User Fehler</button>
+    <button type="button" (click)="reloadUser()">User erneut laden</button>
+    @if (isLoading()) {
+        <p>Laden...</p>
+    } @else if (hasError()) {
+        <p>Fehler beim Laden des Users.</p>
+    } @else if (userResource.hasValue()) {
+        <div class="user-value">
+            <p>User: {{ userResource.value().id }}</p>
+            <p>Name: {{ userResource.value().name }}</p>
+            <p>Json: {{ userResource.value() | json }}</p>
+        </div>
+    } @else {
+        <p>Kein User geladen</p>
+    }
+</section>
+<hr />

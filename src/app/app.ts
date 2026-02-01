@@ -22,14 +22,14 @@ export class App {
   protected readonly title = signal('Chaos');
   protected readonly brandSectionStyle = signal<'brand-section-std' | 'brand-section-white'>('brand-section-std');
   protected readonly brandSectionStyleText = computed(() => this.brandSectionStyle() === 'brand-section-std' ? 'Standard-Style' : 'Weißer Hintergrund');
-  protected readonly brandSectionStyleWritableText = linkedSignal(() => this.brandSectionStyle() === 'brand-section-std' ? 'Standard-Style' : 'Weißer Hintergrund');
+  protected readonly brandSectionStyleWritableText = linkedSignal(() => this.brandSectionStyle() === 'brand-section-std' ? 'Standard' : 'Weiß');
 
   toggleBrandSectionStyle() {
     this.brandSectionStyle.update(style => style === 'brand-section-std' ? 'brand-section-white' : 'brand-section-std');
   }
 
   toggleBrandSectionStyleWritableText() {
-    this.brandSectionStyleWritableText.update(style => style === 'Standard-Style' ? 'Weißer Hintergrund' : 'Standard-Style');
+    this.brandSectionStyleWritableText.update(style => style === 'Standard' ? 'Weiß' : 'Standard');
   }
 
 }
