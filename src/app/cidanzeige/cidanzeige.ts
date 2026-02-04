@@ -23,4 +23,12 @@ export class Cidanzeige {
    * @description Pflichtfeld - muss von der Parent-Component übergeben werden
    */
   ciddaten = input.required<Ciddaten>();
+
+  /**
+   * Information zum anzuzeigenden Ciddaten-Objekts. Optional
+   * @description
+   * Wird verwendet, um die Beschreibung des Ciddaten-Objekts in der Kachelansicht anzuzeigen.
+   */
+  ciddatenInfo = input<string>('ciddatenInfo');
+
 }
