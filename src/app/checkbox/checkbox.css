@@ -1,0 +1,30 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    cursor: pointer;
+    user-select: none;
+}  
+.checkbox input[type='checkbox'] {
+    margin: 0;
+}
+.checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.checkbox input[type='checkbox']:checked + .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}   
+.checkbox input[type='checkbox']:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -2px;
+    left: 2px;
+}

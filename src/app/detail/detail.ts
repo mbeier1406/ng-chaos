@@ -1,9 +1,10 @@
-import { Component, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, model, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CiddatenService } from '../ciddaten.service';
 import { Ciddaten } from '../ciddaten';
 import { DetailService } from '../detail.service';
+import { Checkbox } from '../checkbox/checkbox';
 
 /**
  * Detail-Component zur Anzeige eines einzelnen Ciddaten-Eintrags
@@ -14,7 +15,7 @@ import { DetailService } from '../detail.service';
  */
 @Component({
   selector: 'app-detail',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Checkbox],
   templateUrl: './detail.html',
   styleUrl: './detail.css',
 })
@@ -44,7 +45,13 @@ export class Detail {
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
   });
-  
+
+  /** Model Signal für das two-way binding des Checkboxes */
+  schoenesBild = model<boolean>(false);
+
+  /** Model Signal für das two-way binding des Checkboxes */
+  ichWillMehrBilder = model<boolean>(false);
+
   /**
    * Konstruktor - lädt die Ciddaten anhand der ID aus der URL
    */
@@ -91,4 +98,28 @@ export class Detail {
     const field = this.bildSendenForm.get(fieldName);
     return field ? field.hasError(errorType) && field.touched : false;
   }
+
+
+  /**
+   * Schaltet den Checkbox für das schoenes Bild um
+   */
+  toggleSchoenesBild() {
+    this.schoenesBild.set(!this.schoenesBild());
+  }
+
+  /**
+   * Schaltet den Checkbox für das ich will mehr Bilder um
+   */
+  toggleIchWillMehrBilder() {
+    this.ichWillMehrBilder.set(!this.ichWillMehrBilder());
+  }
+
+  /**
+   * Setzt die Checkboxen zurück
+   */
+  resetCheckBoxes() {
+    this.schoenesBild.set(false);
+    this.ichWillMehrBilder.set(false);
+  }
+
 }

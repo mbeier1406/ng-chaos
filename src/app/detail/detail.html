@@ -46,4 +46,19 @@
             <button type="submit" [disabled]="!bildSendenForm.valid">Bild senden</button>
         </form>
     </section>
+    <app-checkbox [(checked)]="schoenesBild" label="Schoenes Bild" />
+    @if (schoenesBild()) {
+      <p>Schönes Bild :)</p>
+    }
+    @else {
+      <p>Dann eben nicht :-(</p>
+    }
+    <app-checkbox [(checked)]="ichWillMehrBilder" label="Ich will mehr Bilder" />
+    @if (ichWillMehrBilder()) {
+      <p>Ich will mehr Bilder :)</p>
+    }
+    @else {
+      <p>Dann eben nicht :-(</p>
+    }
+    <button id="reset" (click)="resetCheckBoxes()">Checkboxen zurücksetzen</button>
   </article>

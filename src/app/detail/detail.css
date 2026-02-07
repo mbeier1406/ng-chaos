@@ -75,3 +75,13 @@ input.ng-invalid.ng-touched {
 input.ng-valid.ng-touched {
   border-color: #4caf50;
 }
+#reset {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 12pt;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
