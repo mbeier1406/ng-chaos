@@ -1,10 +1,10 @@
 import { Component, inject, model, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CiddatenService } from '../ciddaten.service';
-import { Ciddaten } from '../ciddaten';
-import { DetailService } from '../detail.service';
-import { Checkbox } from '../checkbox/checkbox';
+import { CiddatenService } from '../../core/services/ciddaten.service';
+import { Ciddaten } from '../../core/models/ciddaten';
+import { DetailService } from '../../core/services/detail.service';
+import { Checkbox } from '../../shared/components/checkbox/checkbox';
 
 /**
  * Detail-Component zur Anzeige eines einzelnen Ciddaten-Eintrags

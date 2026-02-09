@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { Detail } from './detail/detail';
+import { Home } from './features/home/home';
+import { Detail } from './features/detail/detail';
 
 const routes: Routes = [
   {

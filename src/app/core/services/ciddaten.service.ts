@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ciddaten } from './ciddaten';
+import { Ciddaten } from '../models/ciddaten';
 
 /**
  * Service zum Abrufen und Verwalten von Ciddaten

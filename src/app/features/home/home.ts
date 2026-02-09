@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Ciddaten } from '../ciddaten';
-import { CiddatenService } from '../ciddaten.service';
-import { Cidanzeige } from '../cidanzeige/cidanzeige';
-import { Debug } from "../debug/debug";
-import { DetailService } from '../detail.service';
+import { Ciddaten } from '../../core/models/ciddaten';
+import { CiddatenService } from '../../core/services/ciddaten.service';
+import { Cidanzeige } from '../../shared/components/cidanzeige/cidanzeige';
+import { Debug } from '../../features/debug/debug';
+import { DetailService } from '../../core/services/detail.service';
 
 /**
  * Home-Component der Anwendung

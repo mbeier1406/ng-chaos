@@ -1,11 +1,11 @@
 import { Component, computed, input, output, resource, signal } from '@angular/core';
 import { UpperCasePipe, LowerCasePipe, JsonPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CidNamen, CID_NAMEN_LISTE } from '../cid-namen';
-import { Ciddaten } from '../ciddaten';
-import { Loader } from "../loader/loader";
-import { BoldPipe } from "../bold-pipe";
-import { loadUser } from "../user-api";
+import { CidNamen, CID_NAMEN_LISTE } from '../../core/models/cid-namen';
+import { Ciddaten } from '../../core/models/ciddaten';
+import { Loader } from '../../shared/components/loader/loader';
+import { BoldPipe } from '../../shared/pipes/bold-pipe';
+import { loadUser } from '../../core/api/user-api';
 
 /**
  * Debug-Component zur Anzeige von Debug-Informationen

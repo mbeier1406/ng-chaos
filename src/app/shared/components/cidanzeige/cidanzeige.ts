@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import {RouterLink} from '@angular/router';
-import { Ciddaten } from '../ciddaten';
+import { Ciddaten } from '../../../core/models/ciddaten';
 
 /**
  * Component zur Anzeige eines einzelnen Ciddaten-Eintrags in der Übersicht
