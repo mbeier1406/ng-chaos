@@ -5,6 +5,7 @@ import { CiddatenService } from '../../core/services/ciddaten.service';
 import { Ciddaten } from '../../core/models/ciddaten';
 import { DetailService } from '../../core/services/detail.service';
 import { Checkbox } from '../../shared/components/checkbox/checkbox';
+import { CidkartenService } from '../../core/services/cidkarten-service';
 
 /**
  * Detail-Component zur Anzeige eines einzelnen Ciddaten-Eintrags
@@ -20,6 +21,10 @@ import { Checkbox } from '../../shared/components/checkbox/checkbox';
   styleUrl: './detail.css',
 })
 export class Detail {
+
+  /** Die ID des aktuell angezeigten Ciddaten-Eintrags */
+  protected ciddatenId : number = 0;
+
   /** Referenz zum ChangeDetectorRef für manuelle Change Detection */
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   
@@ -31,6 +36,9 @@ export class Detail {
   
   /** Service zur Verwaltung des zuletzt gesendeten Bildes */
   detailService: DetailService = inject(DetailService);
+  
+  /** Service zur Verwaltung der bestellten Cidkarten (Bilder) */
+  cidkartenService: CidkartenService = inject(CidkartenService);
   
   /** Das aktuell angezeigte Ciddaten-Objekt */
   ciddaten: Ciddaten | undefined;
@@ -56,8 +64,8 @@ export class Detail {
    * Konstruktor - lädt die Ciddaten anhand der ID aus der URL
    */
   constructor() {
-    const ciddatenId = parseInt(this.route.snapshot.params['id'], 10);
-    this.ciddatenService.getCiddatenById(ciddatenId).then((ciddaten) => {
+    this.ciddatenId = parseInt(this.route.snapshot.params['id'], 10);
+    this.ciddatenService.getCiddatenById(this.ciddatenId).then((ciddaten) => {
       this.ciddaten = ciddaten;
       this.changeDetectorRef.markForCheck();
     });
@@ -120,6 +128,20 @@ export class Detail {
   resetCheckBoxes() {
     this.schoenesBild.set(false);
     this.ichWillMehrBilder.set(false);
+  }
+
+  /**
+   * Fügt das aktuelle Bild zur Liste der bestellten Bilder hinzu
+   */
+  addImageToCidkarten() {
+    this.cidkartenService.addItem(this.ciddatenId);
+  }
+
+  /**
+   * Entfernt das aktuelle Bild aus der Liste der bestellten Bilder
+   */
+  removeImageFromCidkarten() {
+    this.cidkartenService.removeItem(this.ciddatenId);
   }
 
 }
