@@ -12,6 +12,7 @@
         <app-cidanzeige [ciddaten]="ciddaten" />
     }
 </section>
+<p class="cidkarten-anzahl">Anzahl aller bestellten Bilder insgesamt: {{ cidkartenService.anzahlItemsInsgesamt() }}</p>
 <section class="letztes-bild">{{ letztesGesendetesBild }}</section>
 <app-debug [ciddatenListe]="ciddatenList" [filteredCiddatenListe]="filteredCiddatenListe" (debugEvent)="showDebug($event)" />
 <nav>

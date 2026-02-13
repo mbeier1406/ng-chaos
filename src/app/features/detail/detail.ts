@@ -39,7 +39,7 @@ export class Detail {
   
   /** Service zur Verwaltung der bestellten Cidkarten (Bilder) */
   cidkartenService: CidkartenService = inject(CidkartenService);
-  
+
   /** Das aktuell angezeigte Ciddaten-Objekt */
   ciddaten: Ciddaten | undefined;
   

@@ -58,4 +58,16 @@ export class CidkartenService {
         });
     }
 
+    /**
+     * Ruft die Anzahl aller bestellten Bilder eines bestimmten Bildes ab
+     * @param id - Die ID des Bildes, für das die Anzahl bestellter Bilder abgerufen werden soll
+     * @returns Die Anzahl aller bestellten Bilder eines bestimmten Bildes
+     * @example
+     * ```typescript
+     * const anzahl = cidkartenService.anzahlItemsVonBild(1);
+     * ```
+     */
+    public anzahlItemsVonBild(id: number): number {
+        return this.cidkartenItems().find(i => i.id === id)?.anzahl ?? 0;
+    }
 }

@@ -62,7 +62,7 @@
     }
     <button id="reset" (click)="resetCheckBoxes()">Checkboxen zurücksetzen</button>
     <hr />
-    <p class="cidkarten-anzahl">Anzahl aller bestellten Bilder insgesamt: {{ cidkartenService.anzahlItemsInsgesamt() }}</p>
+    <p class="cidkarten-anzahl">Anzahl dieses Bildes: {{ cidkartenService.anzahlItemsVonBild(ciddatenId) }}</p>
     <ul id="cidkarten">
       <li><button id="addImageToCidkarten" (click)="addImageToCidkarten()">Bild zur Cidkarte hinzufügen</button></li>
       <li><button id="removeImageFromCidkarten" (click)="removeImageFromCidkarten()">Bild aus Cidkarte entfernen</button></li>

@@ -6,6 +6,7 @@ import { CiddatenService } from '../../core/services/ciddaten.service';
 import { Cidanzeige } from '../../shared/components/cidanzeige/cidanzeige';
 import { Debug } from '../../features/debug/debug';
 import { DetailService } from '../../core/services/detail.service';
+import { CidkartenService } from '../../core/services/cidkarten-service';
 
 /**
  * Home-Component der Anwendung
@@ -29,6 +30,9 @@ export class Home implements OnDestroy {
   
   /** Service zur Verwaltung von Detail-Informationen */
   private readonly detailService = inject(DetailService);
+
+  /** Service zur Verwaltung der bestellten Cidkarten (Bilder) */
+  protected readonly cidkartenService = inject(CidkartenService);
   
   /** Subscription für das zuletzt gesendete Bild */
   private subscription? : Subscription;
