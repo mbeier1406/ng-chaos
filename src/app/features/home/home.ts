@@ -7,7 +7,7 @@ import { Cidanzeige } from '../../shared/components/cidanzeige/cidanzeige';
 import { Debug } from '../../features/debug/debug';
 import { DetailService } from '../../core/services/detail.service';
 import { CidkartenService } from '../../core/services/cidkarten-service';
-
+import { HighlightIfMany } from '../../shared/directives/highlight-if-many';
 /**
  * Home-Component der Anwendung
  * 
@@ -17,7 +17,7 @@ import { CidkartenService } from '../../core/services/cidkarten-service';
  */
 @Component({
   selector: 'app-home',
-  imports: [Cidanzeige, Debug, RouterLink],
+  imports: [Cidanzeige, Debug, RouterLink, HighlightIfMany],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
