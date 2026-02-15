@@ -1,8 +1,8 @@
 <section class="search" title="{{ debugStatus }}">
     <form >
         <section class="search-form">
-            <input type="text" placeholder="Nach Ort suchen..." #ort />
-            <input type="text" placeholder="Nach Beschreibung suchen..." #beschreibung />
+            <input appHighlight color="blue" [intensity]="0.2" type="text" placeholder="Nach Ort suchen..." #ort />
+            <input appHighlight color="blue" [intensity]="0.2" type="text" placeholder="Nach Beschreibung suchen..." #beschreibung />
             <button class="primary" type="button" (click)="filterListe(ort.value, beschreibung.value)">Suchen</button>
         </section>
     </form>

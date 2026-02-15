@@ -8,6 +8,8 @@ import { Debug } from '../../features/debug/debug';
 import { DetailService } from '../../core/services/detail.service';
 import { CidkartenService } from '../../core/services/cidkarten-service';
 import { HighlightIfMany } from '../../shared/directives/highlight-if-many';
+import { Highlight } from '../../shared/directives/highlight';
+
 /**
  * Home-Component der Anwendung
  * 
@@ -17,7 +19,7 @@ import { HighlightIfMany } from '../../shared/directives/highlight-if-many';
  */
 @Component({
   selector: 'app-home',
-  imports: [Cidanzeige, Debug, RouterLink, HighlightIfMany],
+  imports: [Cidanzeige, Debug, RouterLink, HighlightIfMany, Highlight],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
