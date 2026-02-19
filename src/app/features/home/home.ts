@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnDestroy, viewChild, ElementRef } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Ciddaten } from '../../core/models/ciddaten';
@@ -51,6 +51,10 @@ export class Home implements OnDestroy {
   /** Beschreibung des zuletzt gesendeten Bildes */
   letztesGesendetesBild : string = '';
 
+  /** Referenz zum Ort-Input */
+  ortInput = viewChild<ElementRef<HTMLInputElement>>('ort');
+
+
   /**
    * Konstruktor - lädt alle Ciddaten beim Initialisieren
    */
@@ -77,7 +81,14 @@ export class Home implements OnDestroy {
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
-  
+
+  /**
+   * Focus auf den Ort-Input setzen
+   */
+  focusOrt() {
+    this.ortInput()?.nativeElement.focus();
+  }
+
   /**
    * Filtert die Ciddaten-Liste nach Ort und/oder Beschreibung
    * 
