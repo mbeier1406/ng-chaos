@@ -26,7 +26,7 @@ export class Debug {
    * Status des Debug-Modus
    * @default true
    */
-  debug = true;
+  debug : boolean = false;
   
   /**
    * Status-Text für Debug-Informationen

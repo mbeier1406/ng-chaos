@@ -54,6 +54,9 @@ export class Home implements OnDestroy {
   /** Referenz zum Ort-Input */
   ortInput = viewChild<ElementRef<HTMLInputElement>>('ort');
 
+  /** Referenz zur Debug-Komponente */
+  debugComponent = viewChild<Debug>(Debug);
+
 
   /**
    * Konstruktor - lädt alle Ciddaten beim Initialisieren
@@ -80,6 +83,16 @@ export class Home implements OnDestroy {
    */
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+  }
+
+  /**
+   * After View Init Lifecycle Hook - loggt die Debug-Komponente auf die Browser Console
+   * 
+   * @description
+   * Wird nach der View Initialisierung aufgerufen und loggt die Debug-Komponente.
+   */
+  ngAfterViewInit() {
+    console.log('Debug Component:', this.debugComponent());
   }
 
   /**
