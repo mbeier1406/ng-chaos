@@ -9,6 +9,8 @@ import { Component, viewChild, ElementRef, AfterViewInit } from '@angular/core';
 })
 export class CanvasDemo  implements AfterViewInit {
     canvasRef = viewChild<ElementRef<HTMLCanvasElement>>('canvas');
+    imgX : number = 50;
+    imgY : number = 160;
   
     private get ctx(): CanvasRenderingContext2D | null {
       return this.canvasRef()?.nativeElement.getContext('2d') ?? null;
@@ -16,6 +18,7 @@ export class CanvasDemo  implements AfterViewInit {
   
     ngAfterViewInit(): void {
       this.draw();
+      document.addEventListener('keydown', (event: KeyboardEvent) => this.handleKeyDown(event));
     }
   
     private draw(): void {
@@ -43,8 +46,18 @@ export class CanvasDemo  implements AfterViewInit {
       //img.crossOrigin = 'anonymous'; // nur nötig bei externen URLs
       img.src = '/Cid0.png'
       img.onload = () => {
-        ctx.drawImage(img, 50, 160, 150, 100); // x, y, Breite, Höhe
+        ctx.drawImage(img, this.imgX, this.imgY, 150, 100); // x, y, Breite, Höhe
       };
     }
 
+    private handleKeyDown(event: KeyboardEvent): void {
+      if (event.key === 'ArrowRight') {
+        this.imgX += 10;
+      }
+      if (event.key === 'ArrowLeft') {
+        this.imgX -= 10;
+      }
+      console.log(this.imgX, this.imgY);
+      this.draw();
+    }
   }
