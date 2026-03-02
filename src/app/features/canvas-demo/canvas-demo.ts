@@ -1,4 +1,4 @@
-import { Component, viewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, viewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-canvas-demo',
@@ -7,10 +7,13 @@ import { Component, viewChild, ElementRef, AfterViewInit } from '@angular/core';
   templateUrl: './canvas-demo.html',
   styleUrl: './canvas-demo.css',
 })
-export class CanvasDemo  implements AfterViewInit {
+export class CanvasDemo  implements AfterViewInit, OnDestroy {
     canvasRef = viewChild<ElementRef<HTMLCanvasElement>>('canvas');
     imgX : number = 50;
     imgY : number = 160;
+    private worker : Worker | null = null;
+    private tickInterval : ReturnType<typeof setInterval> | null = null;
+    private boundKeyDown = (event: KeyboardEvent) => this.handleKeyDown(event);
   
     private get ctx(): CanvasRenderingContext2D | null {
       return this.canvasRef()?.nativeElement.getContext('2d') ?? null;
@@ -18,7 +21,8 @@ export class CanvasDemo  implements AfterViewInit {
   
     ngAfterViewInit(): void {
       this.draw();
-      document.addEventListener('keydown', (event: KeyboardEvent) => this.handleKeyDown(event));
+      document.addEventListener('keydown', this.boundKeyDown);
+      this.startTick();
     }
   
     private draw(): void {
@@ -50,14 +54,37 @@ export class CanvasDemo  implements AfterViewInit {
       };
     }
 
-    private handleKeyDown(event: KeyboardEvent): void {
-      if (event.key === 'ArrowRight') {
-        this.imgX += 10;
-      }
-      if (event.key === 'ArrowLeft') {
-        this.imgX -= 10;
-      }
-      console.log(this.imgX, this.imgY);
-      this.draw();
-    }
+  ngOnDestroy(): void {
+    this.stopTick();
   }
+
+  private handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowRight') {
+      this.imgX += 10;
+    }
+    if (event.key === 'ArrowLeft') {
+      this.imgX -= 10;
+    }
+    console.log(this.imgX, this.imgY);
+    this.draw();
+  }
+
+  startTick(): void {
+    this.stopTick();
+    this.worker = new Worker(new URL('./cid-movement-worker', import.meta.url), { type: 'module' });
+    this.worker.onmessage = (event: MessageEvent) => {
+      this.imgX = event.data.x;
+      this.imgY = event.data.y;
+      this.draw();
+    };
+    this.tickInterval = setInterval(() => this.worker?.postMessage({ type: 'tick' }), 250);
+  }
+
+  stopTick(): void {
+    this.tickInterval && clearInterval(this.tickInterval);
+    this.worker?.terminate();
+    this.worker = null;
+    document.removeEventListener('keydown', this.boundKeyDown);
+  }
+
+}
